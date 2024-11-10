@@ -647,7 +647,7 @@ function showCountry(country) {
     document.body.appendChild(oneCountry);
 }
 
-},{"notiflix/build/notiflix-notify-aio":"eXQLZ","./fetchCountries":"dKuy9","lodash":"3qBDj","./LimitError":"evS1R","./NotFoundError":"1AO7q"}],"eXQLZ":[function(require,module,exports) {
+},{"notiflix/build/notiflix-notify-aio":"eXQLZ","./LimitError":"evS1R","./NotFoundError":"1AO7q","./fetchCountries":"dKuy9","lodash":"3qBDj"}],"eXQLZ":[function(require,module,exports) {
 var global = arguments[3];
 /*
 * Notiflix Notify AIO (https://notiflix.github.io)
@@ -1116,31 +1116,7 @@ var global = arguments[3];
     };
 });
 
-},{}],"dKuy9":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "fetchCountries", ()=>fetchCountries);
-var _lodash = require("lodash");
-var _limitError = require("./LimitError");
-var _notFoundError = require("./NotFoundError");
-async function fetchCountries(country) {
-    const response = await fetch(`https://restcountries.com/v3.1/name/${country}`);
-    if (!response.ok) {
-        if (response.status === 404) throw new (0, _notFoundError.NotFoundError)("Oops, there is no country with that name");
-        else throw new Error("An unexpected error occurred");
-    }
-    const data = await response.json();
-    if (data.length > 10) throw new (0, _limitError.LimitError)("Too many matches found. Please enter a more specific name.");
-    return data.map((country)=>({
-            name: country.name.official,
-            population: country.population,
-            capital: country.hasOwnProperty("country") ? country?.capital[0] : "None",
-            flag: country.flags.svg,
-            languages: Object.values(country.languages).join(", ")
-        }));
-}
-
-},{"./LimitError":"evS1R","./NotFoundError":"1AO7q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","lodash":"3qBDj"}],"evS1R":[function(require,module,exports) {
+},{}],"evS1R":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "LimitError", ()=>LimitError);
@@ -1184,7 +1160,31 @@ parcelHelpers.export(exports, "NotFoundError", ()=>NotFoundError);
 class NotFoundError extends Error {
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qBDj":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dKuy9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "fetchCountries", ()=>fetchCountries);
+var _lodash = require("lodash");
+var _limitError = require("./LimitError");
+var _notFoundError = require("./NotFoundError");
+async function fetchCountries(country) {
+    const response = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+    if (!response.ok) {
+        if (response.status === 404) throw new (0, _notFoundError.NotFoundError)("Oops, there is no country with that name");
+        else throw new Error("An unexpected error occurred");
+    }
+    const data = await response.json();
+    if (data.length > 10) throw new (0, _limitError.LimitError)("Too many matches found. Please enter a more specific name.");
+    return data.map((country)=>({
+            name: country.name.official,
+            population: country.population,
+            capital: country.hasOwnProperty("capital") ? country?.capital[0] : "None",
+            flag: country.flags.svg,
+            languages: Object.values(country.languages).join(", ")
+        }));
+}
+
+},{"lodash":"3qBDj","./LimitError":"evS1R","./NotFoundError":"1AO7q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3qBDj":[function(require,module,exports) {
 var global = arguments[3];
 (function() {
     /** Used as a safe reference for `undefined` in pre-ES5 environments. */ var undefined;
