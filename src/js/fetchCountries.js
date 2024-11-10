@@ -25,7 +25,7 @@ export async function fetchCountries(country) {
   return data.map((country) => ({
     name: country.name.official,
     population: country.population,
-    capital: country.hasOwnProperty("country") ? country?.capital[0] : "None",
+    capital: country.hasOwnProperty("capital") ? country?.capital[0] : "None",
     flag: country.flags.svg,
     languages: Object.values(country.languages).join(", "),
   }));

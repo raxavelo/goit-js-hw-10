@@ -5,9 +5,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build --public-url ./",
+    "build": "parcel build --public-url .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --public-url ./",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
