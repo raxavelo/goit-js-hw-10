@@ -1,4 +1,40 @@
 body {
   background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/p6.png");
 }
+
+#countries-list {
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+#countries-list div {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+#countries-list p {
+  margin-left: 5px;
+}
+
+#countries-list img {
+  width: 40px;
+  display: inline-block;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#one-country {
+  flex-direction: column;
+  display: flex;
+}
+
+#one-country img {
+  height: 24px;
+  display: inline-block;
+}
 /*# sourceMappingURL=index.77a9bc14.css.map */
