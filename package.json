@@ -1,0 +1,24 @@
+{
+  "name": "goit-qaa-hw-10",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Grzegorz Zadkowski",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^6.2.0",
+    "parcel": "latest"
+  },
+  "dependencies": {
+    "notiflix": "^3.2.7"
+  }
+}
